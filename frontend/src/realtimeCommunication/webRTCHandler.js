@@ -78,7 +78,15 @@ export const prepareNewPeerConnection = (connUserSocketId, isInitiator) => {
     console.log('direct connection has been established');
     remoteStream.connUserSocketId = connUserSocketId;
     addNewRemoteStream(remoteStream);
+    setInterval(()=>{
+      handleExchangeData({reason:'emoji',body:{emoji:"smile"},connUserSocketId:connUserSocketId})
+    },10000)
   });
+
+  peers[connUserSocketId].on('data',(data)=>{
+    console.log(data)
+  })
+  console.log(connUserSocketId)
 };
 
 export const handleSignalingData = (data) => {
@@ -142,3 +150,10 @@ export const switchOutgoingTracks = (stream) => {
     }
   }
 };
+
+export const handleExchangeData = (data) => {
+    const {connUserSocketId}=data;
+    console.log('sending this to the peer')
+    console.log(data)
+    peers[connUserSocketId].send(JSON.stringify({connUserSocketId:connUserSocketId,reason:data.reason,data:data.body}))
+}
