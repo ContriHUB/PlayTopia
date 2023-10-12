@@ -4,6 +4,7 @@ import CameraButton from './CameraButton';
 import MicButton from './MicButton';
 import CloseRoomButton from './CloseRoomButton';
 import ScreenShareButton from './ScreenShareButton';
+import EmojiTray from './emojiButton';
 import { connect } from 'react-redux';
 import { getActions } from '../../../store/actions/roomActions';
 
@@ -22,11 +23,13 @@ const RoomButtons = (props) => {
   const { localStream, isUserJoinedWithOnlyAudio } = props;
 
   return (
-    <MainContainer>
+    <MainContainer>    
+      <EmojiTray/>
       {!isUserJoinedWithOnlyAudio && <ScreenShareButton {...props} />}
       <MicButton localStream={localStream} />
       <CloseRoomButton />
       {!isUserJoinedWithOnlyAudio && <CameraButton localStream={localStream} />}
+  
     </MainContainer>
   );
 };

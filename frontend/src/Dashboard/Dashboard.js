@@ -35,9 +35,6 @@ const Dashboard = ({ setUserDetails, isUserInRoom }) => {
       <FriendsSideBar />
       <Messenger />
       <AppBar />
-      <button onClick={()=>{
-        console.log(getPeers())
-      }}>Peers</button>
       {isUserInRoom && <Room />}
     </Wrapper>
   );

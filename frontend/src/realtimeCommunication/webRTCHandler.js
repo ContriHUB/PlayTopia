@@ -78,9 +78,7 @@ export const prepareNewPeerConnection = (connUserSocketId, isInitiator) => {
     console.log('direct connection has been established');
     remoteStream.connUserSocketId = connUserSocketId;
     addNewRemoteStream(remoteStream);
-    setInterval(()=>{
-      handleExchangeData({reason:'emoji',body:{emoji:"smile"},connUserSocketId:connUserSocketId})
-    },10000)
+    
   });
 
   peers[connUserSocketId].on('data',(data)=>{
@@ -88,8 +86,24 @@ export const prepareNewPeerConnection = (connUserSocketId, isInitiator) => {
     const charArray = decimalValues.map(decimal => String.fromCharCode(decimal));
     const jsonString = charArray.join('');
     const jsonObject = JSON.parse(jsonString);
-    console.log(jsonObject);
-  })
+    console.log(jsonObject)
+  
+    const imgElement = document.createElement('img');
+    imgElement.src = jsonObject.data.imageUrl;
+    imgElement.width="30"
+    imgElement.height="30"
+    const targetElement = document.getElementById(jsonObject.connUserSocketId);
+     targetElement.appendChild(imgElement);
+    
+    if (targetElement) {
+      targetElement.appendChild(imgElement);
+      setTimeout(()=>{
+        targetElement.removeChild(imgElement)
+      },2000)
+    } else {
+      console.error('Element with id "targetElementId" not found.');
+    }
+      })
  
 };
 
@@ -156,9 +170,10 @@ export const switchOutgoingTracks = (stream) => {
 };
 
 export const handleExchangeData = (data) => {
-    const {connUserSocketId}=data;
+    
     console.log('sending this to the peer')
-    peers[connUserSocketId].send(JSON.stringify({connUserSocketId:connUserSocketId,reason:data.reason,data:data.body}))
+    console.log(data)
+    peers[data.connUserSocketId].send(JSON.stringify({connUserSocketId:localStorage.getItem('peerId'),reason:data.reason,data:data.body}))
 }
 
 export const getPeers = ()=>{

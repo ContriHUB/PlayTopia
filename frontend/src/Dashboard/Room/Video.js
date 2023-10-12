@@ -11,6 +11,7 @@ const MainContainer = styled('div')({
 const VideoEl = styled('video')({
   width: '100%',
   height: '100%',
+ 
 });
 
 const Video = ({ stream, isLocalStream }) => {
@@ -27,7 +28,7 @@ const Video = ({ stream, isLocalStream }) => {
 
   return (
     <MainContainer>
-      <VideoEl ref={videoRef} autoPlay muted={isLocalStream ? true : false} />
+      <VideoEl ref={videoRef} autoPlay muted={isLocalStream ? true : false}/>
     </MainContainer>
   );
 };

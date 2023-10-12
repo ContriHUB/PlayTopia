@@ -17,12 +17,28 @@ const VideosContainer = ({
 }) => {
   return (
     <MainContainer>
-      <Video
-        stream={screenSharingStream ? screenSharingStream : localStream}
-        isLocalStream
-      />
+    
+        <div id='me' style={{
+          height:'30px',
+          width:'30px',
+          position:'absolute',
+        }}></div>
+        <Video
+          stream={screenSharingStream ? screenSharingStream : localStream}
+          isLocalStream
+        />
+    
+      
       {remoteStreams.map((stream) => (
-        <Video stream={stream} key={stream.id} />
+      
+        <>
+          <div id={stream.connUserSocketId} style={{
+          height:'30px',
+          width:'30px',
+          position:'absolute',
+        }}></div>
+          <Video stream={stream} key={stream.id} />
+        </>
       ))}
     </MainContainer>
   );

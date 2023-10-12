@@ -3,8 +3,7 @@ import { styled } from '@mui/system';
 import ResizeRoomButton from './ResizeRoomButton';
 import VideosContainer from './VideosContainer';
 import RoomButtons from './RoomButtons/RoomButtons';
-import EmojiPicker from 'emoji-picker-react';
-import { getPeers,handleExchangeData } from '../../realtimeCommunication/webRTCHandler';
+import EmojiTray from './RoomButtons/emojiButton'
 const MainContainer = styled('div')({
   position: 'absolute',
   borderRadius: '8px',
@@ -35,14 +34,7 @@ const Room = () => {
     setIsRoomMinimized(!isRoomMinimized);
   };
 
-  const handleSendEmoji = (emojidata)=>{
-    const peers = getPeers();
-    const keysArray=Object.keys(peers);
-    for(let id in keysArray){
-      handleExchangeData({connUserSocketId:id,reason:'emoji',body:emojidata,})
-    }
-    
-  }
+  
   return (
     <MainContainer
       style={isRoomMinimized ? minimizedRoomStyle : fullScreenRoomStyle}
@@ -53,7 +45,7 @@ const Room = () => {
         isRoomMinimized={isRoomMinimized}
         handleRoomResize={roomResizeHandler}
       />
-      <EmojiPicker onEmojiClick={handleSendEmoji}/>
+    
     </MainContainer>
   );
 };
