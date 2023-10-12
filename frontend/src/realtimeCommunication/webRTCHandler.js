@@ -84,9 +84,13 @@ export const prepareNewPeerConnection = (connUserSocketId, isInitiator) => {
   });
 
   peers[connUserSocketId].on('data',(data)=>{
-    console.log(data)
+    const decimalValues = Array.from(data);
+    const charArray = decimalValues.map(decimal => String.fromCharCode(decimal));
+    const jsonString = charArray.join('');
+    const jsonObject = JSON.parse(jsonString);
+    console.log(jsonObject);
   })
-  console.log(connUserSocketId)
+ 
 };
 
 export const handleSignalingData = (data) => {
@@ -154,6 +158,9 @@ export const switchOutgoingTracks = (stream) => {
 export const handleExchangeData = (data) => {
     const {connUserSocketId}=data;
     console.log('sending this to the peer')
-    console.log(data)
     peers[connUserSocketId].send(JSON.stringify({connUserSocketId:connUserSocketId,reason:data.reason,data:data.body}))
+}
+
+export const getPeers = ()=>{
+  return peers;
 }

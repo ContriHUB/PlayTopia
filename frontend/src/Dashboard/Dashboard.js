@@ -10,6 +10,7 @@ import { getActions } from '../store/actions/authActions';
 import { connectWithSocketServer } from '../realtimeCommunication/socketConnection';
 import Room from './Room/Room';
 
+import { handleExchangeData,getPeers } from "../realtimeCommunication/webRTCHandler";
 const Wrapper = styled('div')({
   width: '100%',
   height: '100vh',
@@ -34,6 +35,9 @@ const Dashboard = ({ setUserDetails, isUserInRoom }) => {
       <FriendsSideBar />
       <Messenger />
       <AppBar />
+      <button onClick={()=>{
+        console.log(getPeers())
+      }}>Peers</button>
       {isUserInRoom && <Room />}
     </Wrapper>
   );

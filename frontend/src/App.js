@@ -12,11 +12,10 @@ import AlertNotification from "./shared/components/AlertNotification";
 
 import "./App.css";
 
-import { handleExchangeData } from "./realtimeCommunication/webRTCHandler";
 function App() {
   return (
     <>
-      <button onClick={()=>{handleExchangeData()}}></button>
+      
       <Router>
         <Switch>
           <Route exact path="/login">
@@ -32,6 +31,7 @@ function App() {
             <Redirect to="/dashboard" />
           </Route>
         </Switch>
+       
       </Router>
       <AlertNotification />
     </>
