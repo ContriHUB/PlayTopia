@@ -6,7 +6,7 @@ const postInvite = async (req, res) => {
   const { targetMailAddress } = req.body;
 
   const { userId, email } = req.user;
-
+  console.log('invite recieved')
   // check if friend that we would like to invite is not user
 
   if (email.toLowerCase() === targetMailAddress.toLowerCase()) {
