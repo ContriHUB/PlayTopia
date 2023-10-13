@@ -65,7 +65,7 @@ export const register = async (data) => {
       username: data.username,
       password: data.password,
       email: data.email,
-      profileImage: image_url
+      profileImage: image_url? image_url :null,
     }
     return await apiClient.post("/auth/register", new_data);
   } catch (exception) {

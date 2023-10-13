@@ -28,7 +28,7 @@ const RegisterPageInputs = (props) => {
         placeholder="Enter password"
       />
       <InputWithLabel
-        label="Add Profile Photo"
+        label="Profile Photo"
         type="file"
         placeholder="Upload profile photo"
         setValue={setProfileImage}

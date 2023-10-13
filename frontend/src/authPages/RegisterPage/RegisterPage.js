@@ -34,9 +34,10 @@ const RegisterPage = ({ register }) => {
         mail,
         username,
         password,
+        profileImage,
       })
     );
-  }, [mail, username, password, setIsFormValid]);
+  }, [mail, username, password,profileImage, setIsFormValid]);
 
   return (
     <AuthBox>

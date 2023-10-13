@@ -34,7 +34,13 @@ const InputWithLabel = (props) => {
     setValue(event.target.value);
   };
   const handleImageUpload = (event)=>{
-    setValue({ profileImage: event.target.files[0] })
+  if (event.target.files.length > 0) {
+    // User selected a file, access it using event.target.files[0]
+    setValue({ profileImage: event.target.files[0] });
+  } else {
+    // User canceled the file selection, reset the selected file state
+    setValue({ profileImage: null });
+  }
   }
 
   return (
