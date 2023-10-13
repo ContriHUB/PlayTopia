@@ -18,7 +18,8 @@ const postLogin = async (req, res) => {
           userId: user._id,
           email: email,
         },
-        process.env.TOKEN_KEY,
+        // process.env.TOKEN_KEY, commenting this out due to setup issues that may deter new commers
+        'binod',
         {
           expiresIn: '24h',
         }

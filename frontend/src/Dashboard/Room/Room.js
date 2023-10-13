@@ -12,6 +12,7 @@ const MainContainer = styled('div')({
   alignItems: 'center',
   justifyContent: 'center',
   backgroundColor: '#202225',
+
 });
 
 const fullScreenRoomStyle = {
@@ -33,6 +34,7 @@ const Room = () => {
     setIsRoomMinimized(!isRoomMinimized);
   };
 
+  
   return (
     <MainContainer
       style={isRoomMinimized ? minimizedRoomStyle : fullScreenRoomStyle}
@@ -43,6 +45,7 @@ const Room = () => {
         isRoomMinimized={isRoomMinimized}
         handleRoomResize={roomResizeHandler}
       />
+    
     </MainContainer>
   );
 };

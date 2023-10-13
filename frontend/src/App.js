@@ -14,6 +14,7 @@ import "./App.css";
 function App() {
   return (
     <>
+      
       <Router>
         <Switch>
           <Route exact path="/login">
@@ -29,6 +30,7 @@ function App() {
             <Redirect to="/dashboard" />
           </Route>
         </Switch>
+       
       </Router>
       <AlertNotification />
     </>
