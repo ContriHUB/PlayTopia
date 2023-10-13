@@ -1,4 +1,4 @@
-//this is a  new component that add's a emoji picker
+//this one give's the emoji tray where we can select emoji's that were not in the recomended emoji's
 //when the button is clicked the emoji will be displayed
 
 import { useState } from 'react';
@@ -7,12 +7,12 @@ import { IconButton } from '@mui/material';
 import EmojiPicker from 'emoji-picker-react'
 import AddIcon from '@mui/icons-material/Add';
 
-const EmojiTray=({handleSendEmoji,Closer})=>{
+const EmojiTray=({handleSendEmoji})=>{
     const [open,setOpen]=useState(false); //state to implement emoji picking functionality
 
     
     return <>
-       <IconButton onClick={()=>{  //smiley icon button 
+       <IconButton onClick={()=>{  //add icon button that open's the emoji tray
             setOpen(!open)
        }}>
         <AddIcon style={{backgroundColor:"grey",color:'black',borderRadius:'20px'}}></AddIcon>
@@ -22,7 +22,7 @@ const EmojiTray=({handleSendEmoji,Closer})=>{
         <EmojiPicker onEmojiClick={(e)=>{//actual component that display's the emoji pallete
         handleSendEmoji(e)
         setOpen(false)
-        Closer(false)
+      
         }}
         height={'40vh'}
         width={'15vw'} //hard coded value for all emoji pallete's (could change this according to suggestions)

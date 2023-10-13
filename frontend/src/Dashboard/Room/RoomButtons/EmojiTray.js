@@ -1,3 +1,4 @@
+//this component give's smiley button that would open a several emoji's and a emoji picker
 import { IconButton } from '@mui/material'
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions'
 
@@ -39,14 +40,12 @@ const EmojiTrayWithPicker= ()=>{
         console.log(emojidata)
     }
     const handleFixClick=(e)=>{
-        console.log(e.target.src);
-        handleSendEmoji({imageUrl:e.target.src});
-     
+        handleSendEmoji({imageUrl:e.target.src}); //only imageUrl is needeed to share emoji across peer's
     }
     return (<>
         {open&&<EmojiHolder>
-            <EmojiTray handleSendEmoji={handleSendEmoji} Closer={setOpen}/>
-            <img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/1f44d.png" height={'30'} style={fixEmojiStyles} onClick={handleFixClick}></img>
+            <EmojiTray handleSendEmoji={handleSendEmoji}/>
+            <img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/1f44d.png" height={'30'} style={fixEmojiStyles} onClick={handleFixClick}></img> {/* these img tag's contain the required emoji's */}
             <img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/2764-fe0f.png" height={'30'} style={fixEmojiStyles} onClick={handleFixClick}></img>
             <img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/1f64f.png"  height={'30'} style={fixEmojiStyles} onClick={handleFixClick}></img>
             <img src="https://cdn.jsdelivr.net/npm/emoji-datasource-apple/img/apple/64/1f973.png"  height={'30'} style={fixEmojiStyles} onClick={handleFixClick}></img>
