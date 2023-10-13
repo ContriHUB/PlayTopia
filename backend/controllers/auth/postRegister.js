@@ -32,7 +32,8 @@ const postRegister = async (req, res) => {
         userId: user._id,
         email: email,
       },
-      process.env.TOKEN_KEY,
+      //process.env.TOKEN_KEY, commenting out because this is genrally causing issue in newly forked repo will cause trouble for new comer's
+      'binod', 
       {
         expiresIn: '24h',
       }

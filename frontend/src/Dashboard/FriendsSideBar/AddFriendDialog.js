@@ -14,7 +14,7 @@ import { getActions } from '../../store/actions/friendsActions';
 const AddFriendDialog = ({
   isDialogOpen,
   closeDialogHandler,
-  sendFriendInvitation = () => {},
+  sendFriendInvitation
 }) => {
   const [mail, setMail] = useState('');
   const [isFormValid, setIsFormValid] = useState('');

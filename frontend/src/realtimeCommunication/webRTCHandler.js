@@ -78,7 +78,22 @@ export const prepareNewPeerConnection = (connUserSocketId, isInitiator) => {
     console.log('direct connection has been established');
     remoteStream.connUserSocketId = connUserSocketId;
     addNewRemoteStream(remoteStream);
+    
   });
+
+  peers[connUserSocketId].on('data',(data)=>{
+     //since the data of webrtc is transferred over U8int array we change it to json through parsing
+    const decimalValues = Array.from(data); //convert to normal array
+    const charArray = decimalValues.map(decimal => String.fromCharCode(decimal));//go over entire map
+    const jsonString = charArray.join('');//join to form the string
+    const jsonObject = JSON.parse(jsonString);//parse to get object
+    console.log(jsonObject)
+    if(jsonObject.reason=='emoji'){
+      AddEmoji(jsonObject);
+    }
+   
+  })
+ 
 };
 
 export const handleSignalingData = (data) => {
@@ -142,3 +157,36 @@ export const switchOutgoingTracks = (stream) => {
     }
   }
 };
+
+export const handleExchangeData = (data) => {
+    
+    console.log('sending this to the peer')
+    console.log(data)
+    peers[data.connUserSocketId].send(
+      JSON.stringify( //own socket id is being sent so that other peer's know who has sent this data
+        {connUserSocketId:localStorage.getItem('peerId'), //own socket id is stored in localstorage 
+        reason:data.reason,//data reason will tell the other peer what he has to do with this info
+        data:data.body})) //send the data over webrtc data channel
+}
+
+export const getPeers = ()=>{
+  return peers;
+}
+
+const AddEmoji = (jsonObject)=>{
+  const imgElement = document.createElement('img');
+  imgElement.src = jsonObject.data.imageUrl;
+  imgElement.width="30"
+  imgElement.height="30"
+  const targetElement = document.getElementById(jsonObject.connUserSocketId);
+   targetElement.appendChild(imgElement);
+  
+  if (targetElement) {
+    targetElement.appendChild(imgElement);
+    setTimeout(()=>{
+      targetElement.removeChild(imgElement)
+    },2000)
+  } else {
+    console.error('Element with id "targetElementId" not found.');
+  }
+}

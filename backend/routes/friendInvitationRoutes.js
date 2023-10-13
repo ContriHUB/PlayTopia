@@ -5,10 +5,11 @@ const validator = require('express-joi-validation').createValidator({});
 const auth = require('../middleware/auth');
 const friendInvitationControllers = require('../controllers/friendInvitation/friendInvitationControllers');
 
+
 const postFriendInvitationSchema = Joi.object({
   targetMailAddress: Joi.string().email(),
 });
-
+const getPendingInvitationSchema = Joi.object({})
 const inviteDecisionSchema = Joi.object({
   id: Joi.string().required(),
 });

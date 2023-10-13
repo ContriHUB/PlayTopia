@@ -12,6 +12,9 @@ const roomSignalingDataHandler = require('./socketHandlers/roomSignalingDataHand
 const serverStore = require('./serverStore');
 
 const registerSocketServer = (server) => {
+  server.listen(5002,()=>{
+    console.log('socket on 5002')
+  })
   const io = require('socket.io')(server, {
     cors: {
       origin: '*',
@@ -73,6 +76,7 @@ const registerSocketServer = (server) => {
   setInterval(() => {
     emitOnlineUsers();
   }, [1000 * 8]);
+  
 };
 
 module.exports = {
