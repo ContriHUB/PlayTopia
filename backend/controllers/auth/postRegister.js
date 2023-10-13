@@ -3,12 +3,11 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const postRegister = async (req, res) => {
+
   try {
-    const { username, email, password } = req.body;
-    console.log({ username, email, password });
-
+    const {username, password,email,profileImage} = req.body;
     console.log('user register request came');
-
+    console.log(profileImage)
     //check if user exists
     // const userExists = await User.exists({ mail: mail.toLowerCase() });
 
@@ -20,10 +19,12 @@ const postRegister = async (req, res) => {
     const encryptedPassword = await bcrypt.hash(password, 10);
 
     // create user document and save in database
+
     const user = await User.create({
       username,
       email: email,
       password: encryptedPassword,
+      profileImage: profileImage !== null ? profileImage:"https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
     });
 
     // create JWT token
@@ -43,6 +44,7 @@ const postRegister = async (req, res) => {
         email: user.email,
         token: token,
         username: user.username,
+        profileImage: user.profileImage
       },
     });
   } catch (err) {

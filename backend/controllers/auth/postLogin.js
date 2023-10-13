@@ -29,6 +29,7 @@ const postLogin = async (req, res) => {
           email: user.email,
           token: token,
           username: user.username,
+          profileImage: user.profileImage
         },
       });
     }
