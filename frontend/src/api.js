@@ -29,10 +29,10 @@ async function uploadImage(files) {
   if (file.type === "image/jpeg" || file.type === "image/png") {
     const data = new FormData();
     data.append("file", file);
-    data.append("upload_preset", "ChatApp");
+    data.append("upload_preset", "ChatApp");     
     data.append("cloud_name", "dl0hkjsah");
       const res = await axios.post(
-        "https://api.cloudinary.com/v1_1/dl0hkjsah/image/upload",   //
+        "https://api.cloudinary.com/v1_1/dl0hkjsah/image/upload",   //"https://api.cloudinary.com/v1_1/<Cloud_Name>/image/upload
         data
       );
       return res.data.url;   //Link of image for accessing it on cloud
