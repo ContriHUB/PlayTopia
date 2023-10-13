@@ -27,28 +27,24 @@ const Input = styled("input")({
   padding: "0 5px",
 });
 
-const InputWithLabel = (props) => {
+const PhotoUpload = (props) => {
   const { value, setValue, label, type, placeholder } = props;
 
   const handleValueChange = (event) => {
     setValue(event.target.value);
   };
-  const handleImageUpload = (event)=>{
-    setValue({ profileImage: event.target.files[0] })
-  }
 
   return (
- 
     <Wrapper>
       <Label>{label}</Label>
       <Input
         value={value}
-        onChange={type==="file" ? handleImageUpload: handleValueChange}
+        onChange={handleValueChange}
         type={type}
         placeholder={placeholder}
       />
     </Wrapper>
-  )
+  );
 };
 
-export default InputWithLabel;
+export default PhotoUpload;
