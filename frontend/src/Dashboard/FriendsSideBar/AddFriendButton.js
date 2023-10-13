@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CustomPrimaryButton from '../../shared/components/CustomPrimaryButton';
 import AddFriendDialog from './AddFriendDialog';
-import axios from 'axios';
+import { sendFriendInvitation } from '../../api';
 
 const additionalStyles = {
   marginTop: '10px',
@@ -32,17 +32,14 @@ const AddFriendButton = () => {
       <AddFriendDialog
         isDialogOpen={isDialogOpen}
         closeDialogHandler={handleCloseAddFriendDialog}
-        sendFriendInvitation={sendEmailInvitation}
+        sendFriendInvitation={sendEmail}
       />
     </>
   );
 };
-const sendEmailInvitation=(email,callback)=>{
-    //this handler was not present in the orignal code
-    // call the api with /invite endpoint 
-    axios.get('http://localhost:5000/invite',{targetMailAddress:email}).then((res)=>{
-      console.log(res);
-    })
-    callback();
+const sendEmail= async (email,callback)=>{
+   // adding a handler to send friend requests
+    sendFriendInvitation({targetMailAddress:email})
+    callback(); //calling the callback most probably closing the pop up that has appeared
 }
 export default AddFriendButton;

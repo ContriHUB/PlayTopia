@@ -26,8 +26,8 @@ const VideosContainer = ({
 }) => {
   return (
     <MainContainer>
-      <VideoWrapper>
-        <div id='me' style={{
+      <VideoWrapper>{/* new div that hold's the video as well as the emoji */}
+        <div id='me' style={{ //these are the div's that will be searched through jquery and emoji's will be added on
             height:'30px',
             width:'30px',
             position:'absolute',
@@ -43,7 +43,7 @@ const VideosContainer = ({
       {remoteStreams.map((stream) => (
       
         <VideoWrapper>
-          <div id={stream.connUserSocketId} style={{
+          <div id={stream.connUserSocketId} style={{ //div for adding emoji's
           height:'30px',
           width:'30px',
           position:'absolute',

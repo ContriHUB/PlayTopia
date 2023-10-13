@@ -23,7 +23,7 @@ export const connectWithSocketServer = (userDetails) => {
   socket.on('connect', () => {
     console.log('succesfully connected with socket.io server');
     console.log(socket.id);
-    localStorage.setItem('peerId',socket.id);
+    localStorage.setItem('peerId',socket.id); //storing the socket id for use later (to know what own id is for setting sender's id)
   });
 
   socket.on('friends-invitations', (data) => {

@@ -3,7 +3,7 @@ import { styled } from '@mui/system';
 import ResizeRoomButton from './ResizeRoomButton';
 import VideosContainer from './VideosContainer';
 import RoomButtons from './RoomButtons/RoomButtons';
-import EmojiTray from './RoomButtons/emojiButton'
+
 const MainContainer = styled('div')({
   position: 'absolute',
   borderRadius: '8px',

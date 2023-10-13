@@ -24,12 +24,11 @@ const RoomButtons = (props) => {
 
   return (
     <MainContainer>    
-      <EmojiTray/>
+      <EmojiTray/>{/* added the emoji tray button to the group of buttons*/}
       {!isUserJoinedWithOnlyAudio && <ScreenShareButton {...props} />}
       <MicButton localStream={localStream} />
       <CloseRoomButton />
       {!isUserJoinedWithOnlyAudio && <CameraButton localStream={localStream} />}
-  
     </MainContainer>
   );
 };
