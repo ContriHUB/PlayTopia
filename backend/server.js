@@ -190,7 +190,7 @@ mongoose.set("strictQuery", false);
 //     console.log("database connection failed. Server not started");
 //     console.error(err);
 //   });
-mongoose.connect("<Mongo_URI>", {
+mongoose.connect("<MONGO_URI>", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
