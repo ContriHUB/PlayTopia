@@ -7,7 +7,6 @@ const postRegister = async (req, res) => {
   try {
     const {username, password,email,profileImage} = req.body;
     console.log('user register request came');
-    console.log(profileImage)
     //check if user exists
     // const userExists = await User.exists({ mail: mail.toLowerCase() });
 
@@ -24,7 +23,7 @@ const postRegister = async (req, res) => {
       username,
       email: email,
       password: encryptedPassword,
-      profileImage: profileImage !== null ? profileImage:"https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
+      profileImage: profileImage,
     });
 
     // create JWT token

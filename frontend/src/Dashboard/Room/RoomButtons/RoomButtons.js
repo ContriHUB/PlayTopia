@@ -8,6 +8,7 @@ import EmojiTrayWithPicker from './EmojiTray';
 import { connect } from 'react-redux';
 import { getActions } from '../../../store/actions/roomActions';
 
+
 const MainContainer = styled('div')({
   height: '15%',
   width: '100%',
