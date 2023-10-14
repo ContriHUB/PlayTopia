@@ -32,6 +32,7 @@ const SideBar = ({ activeRooms, isUserInRoom }) => {
           amountOfParticipants={room.participants.length}
           key={room.roomId}
           isUserInRoom={isUserInRoom}
+          profileImage={room.profileImage}
         />
       ))}
     </MainContainer>

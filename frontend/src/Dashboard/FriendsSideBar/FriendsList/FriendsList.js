@@ -26,6 +26,7 @@ const FriendsList = ({ friends, onlineUsers }) => {
           id={f.id}
           key={f.id}
           isOnline={f.isOnline}
+          profileImage={f.profileImage}
         />
       ))}
     </MainContainer>

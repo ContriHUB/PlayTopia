@@ -37,7 +37,7 @@ const Room = () => {
     <MainContainer
       style={isRoomMinimized ? minimizedRoomStyle : fullScreenRoomStyle}
     >
-      <VideosContainer />
+      <VideosContainer /> 
       <RoomButtons />
       <ResizeRoomButton
         isRoomMinimized={isRoomMinimized}

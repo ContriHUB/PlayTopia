@@ -38,9 +38,9 @@ export const setOnlineUsers = (onlineUsers) => {
 };
 
 const sendFriendInvitation = (data, closeDialogHandler) => {
+
   return async (dispatch) => {
     const response = await api.sendFriendInvitation(data);
-
     if (response.error) {
       dispatch(openAlertMessage(response.exception?.response?.data));
     } else {
@@ -53,7 +53,6 @@ const sendFriendInvitation = (data, closeDialogHandler) => {
 const acceptFriendInvitation = (data) => {
   return async (dispatch) => {
     const response = await api.acceptFriendInvitation(data);
-
     if (response.error) {
       dispatch(openAlertMessage(response.exception?.response?.data));
     } else {
