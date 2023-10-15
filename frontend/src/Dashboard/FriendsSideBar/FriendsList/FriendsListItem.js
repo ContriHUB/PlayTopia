@@ -6,7 +6,7 @@ import OnlineIndicator from './OnlineIndicator';
 import { chatTypes, getActions } from '../../../store/actions/chatActions';
 import { connect } from 'react-redux';
 
-const FriendsListItem = ({ id, username, isOnline, setChosenChatDetails }) => {
+const FriendsListItem = ({ id, username, isOnline, setChosenChatDetails,profileImage }) => {
   const handleChooseActiveConversation = () => {
     setChosenChatDetails({ id: id, name: username }, chatTypes.DIRECT);
   };
@@ -26,7 +26,7 @@ const FriendsListItem = ({ id, username, isOnline, setChosenChatDetails }) => {
         position: 'relative',
       }}
     >
-      <Avatar username={username} />
+      <Avatar username={username} profileImage={profileImage} />
       <Typography
         style={{
           marginLeft: '7px',

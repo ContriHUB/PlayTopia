@@ -5,16 +5,30 @@ export const validateLoginForm = ({ mail, password }) => {
   return isMailValid && isPasswordValid;
 };
 
-export const validateRegisterForm = ({ mail, password, username }) => {
+export const validateRegisterForm = ({
+  mail,
+  password,
+  username,
+  profileImage,
+}) => {
   return (
     validateMail(mail) &&
     validatePassword(password) &&
-    validateUsername(username)
+    validateUsername(username) &&
+    validateUserPic(profileImage)
   );
 };
 
 const validatePassword = (password) => {
   return password.length > 5 && password.length < 13;
+};
+
+const validateUserPic = (profileImage) => {
+  if(!profileImage) return true
+  if(profileImage.profileImage &&
+    (profileImage.profileImage.type !== "image/jpeg" &&
+      profileImage.profileImage.type !== "image/png")) return false
+  return true
 };
 
 export const validateMail = (mail) => {

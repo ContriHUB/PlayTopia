@@ -4,11 +4,13 @@ const authControllers = require('../controllers/auth/authControllers');
 const Joi = require('joi');
 const validator = require('express-joi-validation').createValidator({});
 const auth = require('../middleware/auth');
+// const upload = require("../middleware/multer")
 
 const registerSchema = Joi.object({
   username: Joi.string().min(3).max(12).required(),
   password: Joi.string().min(6).max(12).required(),
   email: Joi.string().email().required(),
+  profileImage:Joi.any().optional()
 });
 
 const loginSchema = Joi.object({

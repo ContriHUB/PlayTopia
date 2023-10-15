@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { IconButton } from '@mui/material';
@@ -7,6 +6,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { logout } from '../../shared/utils/auth';
 import { getActions } from '../../store/actions/roomActions';
 import { connect } from 'react-redux';
+import UserProfileImage from './userProfileImage';
 
 const BasicMenu = ({ audioOnly, setAudioOnly }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -24,7 +24,8 @@ const BasicMenu = ({ audioOnly, setAudioOnly }) => {
   };
 
   return (
-    <div>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <UserProfileImage />
       <IconButton onClick={handleMenuOpen} style={{ color: 'white' }}>
         <MoreVertIcon />
       </IconButton>

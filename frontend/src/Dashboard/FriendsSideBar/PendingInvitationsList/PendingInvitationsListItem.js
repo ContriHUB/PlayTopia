@@ -9,11 +9,11 @@ const PendingInvitationsListItem = ({
   id,
   username,
   mail,
+  profileImage,
   acceptFriendInvitation = () => {},
   rejectFriendInvitation = () => {},
 }) => {
   const [buttonsDisabled, setButtonsDisabled] = useState(false);
-
   const handleAcceptInvitation = () => {
     console.log(id);
     acceptFriendInvitation({ id });
@@ -39,7 +39,7 @@ const PendingInvitationsListItem = ({
             justifyContent: 'space-between',
           }}
         >
-          <Avatar username={username} />
+          <Avatar username={username} profileImage={profileImage}/>
           <Typography
             sx={{
               marginLeft: '7px',
