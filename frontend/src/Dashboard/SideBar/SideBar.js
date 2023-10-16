@@ -14,7 +14,7 @@ const MainContainer =styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: theme.palette.background.bg3,
   border:'solid black'
 }));
 

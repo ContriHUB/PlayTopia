@@ -10,19 +10,19 @@ const MainContainer = styled('div')(({ theme }) => ({
   height: '48px',
   borderBottom: '1px solid black',
   backgroundColor: theme.palette.background.default,
-  width: 'calc(100% - 326px)',
+  width: 'calc(100% - 336px)',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
   padding: '0 15px',
 }));
 
-const AppBar = () => {
+const AppBar = ({toggleTheme}) => {
   const theme = useTheme()
   return (
     <MainContainer theme={theme}>
       <ChosenOptionLabel />
-      <DropdownMenu />
+      <DropdownMenu toggleTheme={toggleTheme}/>  
     </MainContainer>
   );
 };

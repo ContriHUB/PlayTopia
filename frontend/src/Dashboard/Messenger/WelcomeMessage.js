@@ -8,7 +8,7 @@ const Wrapper = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  backgroundColor:theme.palette.background.default
+  backgroundColor:theme.palette.background.bg1
 }));
 
 const WelcomeMessage = () => {

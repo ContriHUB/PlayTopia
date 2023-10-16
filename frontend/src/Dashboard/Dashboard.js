@@ -18,7 +18,7 @@ const Wrapper = styled('div')(({ theme }) => ({
   backgroundColor:theme.palette.background.default
 }));
 
-const Dashboard = ({ setUserDetails, isUserInRoom }) => {
+const Dashboard = ({ setUserDetails, isUserInRoom,toggleTheme }) => {
   const theme=useTheme();
   useEffect(() => {
     const userDetails = localStorage.getItem('user');
@@ -36,7 +36,7 @@ const Dashboard = ({ setUserDetails, isUserInRoom }) => {
       <SideBar />
       <FriendsSideBar />
       <Messenger />
-      <AppBar />
+      <AppBar toggleTheme= {toggleTheme}/>
       {isUserInRoom && <Room />}
     </Wrapper>
   );

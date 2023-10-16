@@ -8,8 +8,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { logout } from '../../shared/utils/auth';
 import { getActions } from '../../store/actions/roomActions';
 import { connect } from 'react-redux';
-
-const BasicMenu = ({ audioOnly, setAudioOnly }) => {
+import './Button.css'
+const BasicMenu = ({ audioOnly, setAudioOnly, toggleTheme }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -46,6 +46,7 @@ const BasicMenu = ({ audioOnly, setAudioOnly }) => {
           {audioOnly ? 'Audio Only Enabled' : 'Audio Only Disabled'}
         </MenuItem>
       </Menu>
+      <button onClick={toggleTheme} style={{backgroundColor:'width',borderRadius:'4px' ,borderColor:'none'}} >{<theme.palette.img.default/>}</button>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const MainContainer = styled('div')(({ theme }) => ({
   flexDirection: "column",
   alignItems: "center",
   border:'solid black',
-  backgroundColor: theme.palette.background.default,
+  backgroundColor: theme.palette.background.bg2,
 }));
 
 const FriendsSideBar = () => {

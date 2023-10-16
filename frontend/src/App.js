@@ -26,7 +26,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <button onClick={toggleTheme} >Toggle Theme</button>
+       
         <Router >
           <Switch>
             <Route exact path="/login">
@@ -36,7 +36,7 @@ function App() {
               <RegisterPage />
             </Route>
             <Route exact path="/dashboard">
-              <Dashboard />
+              <Dashboard toggleTheme={toggleTheme}/>
             </Route>
             <Route path="/">
               <Redirect to="/dashboard" />
