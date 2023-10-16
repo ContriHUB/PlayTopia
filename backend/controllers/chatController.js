@@ -5,5 +5,4 @@ function chatController() {
     },
   };
 }
-
 module.exports = chatController;

@@ -11,6 +11,7 @@ const OnlineIndicator = () => {
         alignItems: 'center',
         position: 'absolute',
         right: '5px',
+        
       }}
     >
       <FiberManualRecordIcon />

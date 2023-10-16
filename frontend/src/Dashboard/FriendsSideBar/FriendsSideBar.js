@@ -1,23 +1,25 @@
 
-import { styled } from "@mui/system";
+import { styled ,useTheme} from "@mui/system";
 import AddFriendButton from "./AddFriendButton";
 import FriendsTitle from "./FriendsTitle";
 import FriendsList from "./FriendsList/FriendsList";
 import PendingInvitationsList from "./PendingInvitationsList/PendingInvitationsList";
 
 
-const MainContainer = styled("div")({
+const MainContainer = styled('div')(({ theme }) => ({
   width: "224px",
   height: "100%",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  backgroundColor: "#2F3136",
-});
+  border:'solid black',
+  backgroundColor: theme.palette.background.default,
+}));
 
 const FriendsSideBar = () => {
+  const theme=useTheme();
   return (
-    <MainContainer>
+    <MainContainer theme={theme}>
       <AddFriendButton />
       <FriendsTitle title="Private Messages" />
       <FriendsList />

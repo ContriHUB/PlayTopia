@@ -1,12 +1,13 @@
 import React from "react";
-import { styled } from "@mui/system";
+import { styled,useTheme } from "@mui/system";
 import FriendsListItem from "./FriendsListItem";
 import { connect } from "react-redux";
 
-const MainContainer = styled("div")({
+const MainContainer = styled('div')(({ theme }) => ({
   flexGrow: 1,
   width: "100%",
-});
+  backgroundColor:theme.palette.background.default
+}));
 
 const checkOnlineUsers = (friends = [], onlineUsers = []) => {
   friends.forEach((f) => {
@@ -18,8 +19,9 @@ const checkOnlineUsers = (friends = [], onlineUsers = []) => {
 };
 
 const FriendsList = ({ friends, onlineUsers }) => {
+  const theme=useTheme();
   return (
-    <MainContainer>
+    <MainContainer theme={theme}>
       {checkOnlineUsers(friends, onlineUsers).map((f) => (
         <FriendsListItem
           username={f.username}

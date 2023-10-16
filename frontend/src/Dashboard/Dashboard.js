@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { styled } from '@mui/system';
+import { styled,useTheme } from '@mui/system';
 import SideBar from './SideBar/SideBar';
 import FriendsSideBar from './FriendsSideBar/FriendsSideBar';
 import Messenger from './Messenger/Messenger';
@@ -11,13 +11,15 @@ import { connectWithSocketServer } from '../realtimeCommunication/socketConnecti
 import Room from './Room/Room';
 
 import { handleExchangeData,getPeers } from "../realtimeCommunication/webRTCHandler";
-const Wrapper = styled('div')({
+const Wrapper = styled('div')(({ theme }) => ({
   width: '100%',
   height: '100vh',
   display: 'flex',
-});
+  backgroundColor:theme.palette.background.default
+}));
 
 const Dashboard = ({ setUserDetails, isUserInRoom }) => {
+  const theme=useTheme();
   useEffect(() => {
     const userDetails = localStorage.getItem('user');
 
@@ -30,7 +32,7 @@ const Dashboard = ({ setUserDetails, isUserInRoom }) => {
   }, []);
 
   return (
-    <Wrapper>
+    <Wrapper theme={theme}>
       <SideBar />
       <FriendsSideBar />
       <Messenger />

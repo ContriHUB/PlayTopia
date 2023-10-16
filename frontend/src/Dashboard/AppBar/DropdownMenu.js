@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { IconButton } from '@mui/material';
+import { styled,useTheme} from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { logout } from '../../shared/utils/auth';
 import { getActions } from '../../store/actions/roomActions';
@@ -22,10 +23,13 @@ const BasicMenu = ({ audioOnly, setAudioOnly }) => {
   const handleAudioOnlyChange = () => {
     setAudioOnly(!audioOnly);
   };
+  
 
+
+  const theme=useTheme();
   return (
     <div>
-      <IconButton onClick={handleMenuOpen} style={{ color: 'white' }}>
+      <IconButton  theme={theme} onClick={handleMenuOpen} >
         <MoreVertIcon />
       </IconButton>
       <Menu

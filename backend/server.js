@@ -189,7 +189,7 @@ mongoose.set("strictQuery", false);
 //     console.log("database connection failed. Server not started");
 //     console.error(err);
 //   });
-mongoose.connect("mongodb://127.0.0.1:27017/playTopia", {
+mongoose.connect("mongodb+srv://ishsinghal0707:GK2CWBDqGw6goPUs@cluster0.soqor6m.mongodb.net/?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
