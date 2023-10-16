@@ -3,7 +3,10 @@ import { styled ,useTheme} from '@mui/system';
 import DropdownMenu from './DropdownMenu';
 import ChosenOptionLabel from './ChosenOptionLabel';
 
-const MainContainer = styled('div')(({ theme }) => ({
+
+
+const MainContainer = styled('div')({
+
   position: 'absolute',
   right: '0',
   top: '0',

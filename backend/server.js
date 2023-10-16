@@ -1,3 +1,4 @@
+// QxSce36W8yaKHDm2
 const express = require("express");
 const http = require("http");
 const cors = require("cors");
@@ -16,7 +17,7 @@ const friendInvitationRoutes = require("./routes/friendInvitationRoutes");
 const chatbotRoutes = require("./routes/chatbotRoutes");
 const memoryGameRoutes = require("./routes/memoryGameRoutes");
 const animatedRoutes = require("./routes/animatedRoutes");
-const fetch=require('node-fetch-commonjs')
+const fetch=require('node-fetch-commonjs');
 // require("dotenv").config({ path: "" });
 const PORT = process.env.PORT || process.env.API_PORT;
 
@@ -189,7 +190,8 @@ mongoose.set("strictQuery", false);
 //     console.log("database connection failed. Server not started");
 //     console.error(err);
 //   });
-mongoose.connect("mongodb+srv://ishsinghal0707:GK2CWBDqGw6goPUs@cluster0.soqor6m.mongodb.net/?retryWrites=true&w=majority", {
+
+mongoose.connect("MONGO_URI", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

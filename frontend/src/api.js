@@ -22,6 +22,26 @@ apiClient.interceptors.request.use(
   }
 );
 
+// Saving uses image on cloud storage
+async function uploadImage(files) {  
+  if(!files) return null
+  const file = files.profileImage
+  if (file.type === "image/jpeg" || file.type === "image/png") {
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "ChatApp");     
+    data.append("cloud_name", "dl0hkjsah");
+      const res = await axios.post(
+        "https://api.cloudinary.com/v1_1/dl0hkjsah/image/upload",   //"https://api.cloudinary.com/v1_1/<Cloud_Name>/image/upload
+        data
+      );
+      return res.data.url;   //Link of image for accessing it on cloud
+    } 
+  else{
+    alert("Please select an image file");
+  }
+}
+
 // public routes
 
 export const login = async (data) => {
@@ -35,9 +55,19 @@ export const login = async (data) => {
   }
 };
 
+
+
 export const register = async (data) => {
   try {
-    return await apiClient.post("/auth/register", data);
+    const image_url = await uploadImage(data.profileImage)
+    console.log(image_url) //Uploadation of image on 'cloudinary' cloud storage
+    const new_data = {          //New data file for including image url
+      username: data.username,
+      password: data.password,
+      email: data.email,
+      profileImage: image_url? image_url :null,
+    }
+    return await apiClient.post("/auth/register", new_data);
   } catch (exception) {
     return {
       error: true,
@@ -48,6 +78,7 @@ export const register = async (data) => {
 
 // secure routes
 export const sendFriendInvitation = async (data) => {
+  console.log(data)
   try {
     return await apiClient.post("/friend-invitation/invite", data);
   } catch (exception) {

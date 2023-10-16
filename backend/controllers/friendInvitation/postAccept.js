@@ -23,7 +23,6 @@ const postAccept = async (req, res) => {
 
     await senderUser.save();
     await receiverUser.save();
-
     // delete invitation
     await FriendInvitation.findByIdAndDelete(id);
 

@@ -9,6 +9,7 @@ const ActiveRoomButton = ({
   roomId,
   amountOfParticipants,
   isUserInRoom,
+  profileImage
 }) => {
   const handleJoinActiveRoom = () => {
     if (amountOfParticipants < 4) {
@@ -16,6 +17,7 @@ const ActiveRoomButton = ({
     }
   };
 
+   console.log(amountOfParticipants)
   const activeRoomButtonDisabled = amountOfParticipants > 3;
   const roomTitle = `Cretor: ${creatorUsername}. Connected: ${amountOfParticipants}`;
 
@@ -37,7 +39,7 @@ const ActiveRoomButton = ({
           disabled={activeRoomButtonDisabled || isUserInRoom}
           onClick={handleJoinActiveRoom}
         >
-          <Avatar username={creatorUsername} />
+          <Avatar username={creatorUsername} profileImage={profileImage}/>
         </Button>
       </div>
     </Tooltip>

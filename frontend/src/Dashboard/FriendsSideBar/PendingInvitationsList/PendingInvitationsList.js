@@ -14,7 +14,9 @@ const MainContainer = styled('div')(({ theme }) => ({
 }));
 
 const PendingInvitationsList = ({ pendingFriendsInvitations }) => {
-  const theme=useTheme();
+
+  console.log(pendingFriendsInvitations)
+
   return (
     <MainContainer theme={theme}>
       {pendingFriendsInvitations.map((invitation) => (
@@ -22,7 +24,8 @@ const PendingInvitationsList = ({ pendingFriendsInvitations }) => {
           key={invitation._id}
           id={invitation._id}
           username={invitation.senderId.username}
-          email={invitation.senderId.mail}
+          mail={invitation.senderId.email}
+          profileImage={invitation.senderId.profileImage}
         />
       ))}
     </MainContainer>
