@@ -3,17 +3,7 @@
   src: url("../src/clear-sans.ttf") format("truetype");
 }
 
-body {
-  display: flex;
-  background-image: url(./assets/img/bg.jpg);
-  background-color: #acdeea;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  font-family: "Clear Sans", sans-serif;
-  font-size: 21px;
-}
+
 
 .text {
   order: 2;

@@ -4,7 +4,7 @@ import ExtensionIcon from '@mui/icons-material/Extension';
 
 const Game2Button = () => {
   function handleClick() {
-    window.location.href = 'http://localhost:3456/';
+    window.location.href = 'http://localhost:3000/2048-Animated';
   }
   return (
     <Button

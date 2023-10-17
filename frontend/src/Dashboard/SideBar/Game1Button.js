@@ -4,7 +4,7 @@ import FunctionsIcon from '@mui/icons-material/Functions';
 
 const Game1Button = () => {
   function handleClick() {
-    window.location.href = 'http://localhost:3457/';
+    window.location.href = 'http://localhost:3000/memoryGame';
   }
   return (
     <Button

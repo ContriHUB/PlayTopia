@@ -13,8 +13,8 @@ export default function SingleCard({card,handleChoice, flipped, disabled}) {
             <div className={flipped ? "flipped" : ""}>
               <img className="front" src={card.src} alt="card front" />
               <img 
-                classNAme="back" 
-                src="/img/cover.png" 
+                className="back" 
+                src="/memoryGame/img/cover.png" 
                 onClick={handleClick} 
                 alt="card back" 
               />
