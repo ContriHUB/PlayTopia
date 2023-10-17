@@ -2,6 +2,7 @@ import React from 'react';
 import { styled } from '@mui/system';
 import Avatar from '../../../shared/components/Avatar';
 import Typography from '@mui/material/Typography';
+import store from '../../../store/store';
 
 const MainContainer = styled('div')({
   width: '97%',
@@ -31,7 +32,8 @@ const SameAuthorMessageText = styled('span')({
   marginLeft: '70px',
 });
 
-const Message = ({ content, sameAuthor, username, date, sameDay }) => {
+const Message = ({ content, sameAuthor, username, date, sameDay,profileImage }) => {
+  const userId = store.getState().auth.userDetails?._id;
   if (sameAuthor && sameDay) {
     return (
       <SameAuthorMessageContent>
@@ -43,7 +45,7 @@ const Message = ({ content, sameAuthor, username, date, sameDay }) => {
   return (
     <MainContainer>
       <AvatarContainer>
-        <Avatar username={username} />
+        <Avatar username={username} profileImage={profileImage}/>
       </AvatarContainer>
       <MessageContainer>
         <Typography style={{ fontSize: '16px', color: 'white' }}>

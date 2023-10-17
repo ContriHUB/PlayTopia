@@ -6,7 +6,7 @@ const DUMMY_MESSAGES = [
     author: {
       username: 'Marek',
     },
-    date: '22/01/2022',
+    date: '22-01-2022',
     sameDay: false,
   },
   {

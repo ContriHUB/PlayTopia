@@ -2,7 +2,6 @@ import React, { userRef, useEffect } from 'react';
 import { styled } from '@mui/system';
 import MessagesHeader from './MessagesHeader';
 import { connect } from 'react-redux';
-// import DUMMY_MESSAGES from './DUMMY_MESSAGES';
 import Message from './Message';
 import DateSeparator from './DateSeparator';
 
@@ -15,6 +14,7 @@ const MainContainer = styled('div')({
 });
 
 const convertDateToHumanReadable = (date, format) => {
+  // console.log(date)
   const map = {
     mm: date.getMonth() + 1,
     dd: date.getDate(),
@@ -25,10 +25,12 @@ const convertDateToHumanReadable = (date, format) => {
   return format.replace(/mm|dd|yy|yyy/gi, (matched) => map[matched]);
 };
 
-const Messages = ({ chosenChatDetails, messages }) => {
-  return (
+const Messages = ({ chosenChatDetails, messages}) => {
+  console.log(chosenChatDetails)
+  console.log(messages)
+    return (
     <MainContainer>
-      <MessagesHeader name={chosenChatDetails?.name} />
+      <MessagesHeader name={chosenChatDetails?.name} profileImage={chosenChatDetails.profileImage}/>
       {messages.map((message, index) => {
         const sameAuthor =
           index > 0 &&
@@ -41,16 +43,6 @@ const Messages = ({ chosenChatDetails, messages }) => {
               new Date(messages[index - 1].date),
               'dd/mm/yy'
             );
-
-        console.log(message.date);
-        console.log(
-          convertDateToHumanReadable(
-            new Date(messages[index - 1].date),
-            'dd/mm/yy'
-          )
-        );
-
-        console.log(messages);
 
         return (
           <div key={message._id} style={{ width: '97%' }}>
@@ -66,6 +58,8 @@ const Messages = ({ chosenChatDetails, messages }) => {
               content={message.content}
               username={message.author.username}
               sameAuthor={sameAuthor}
+              userId={message.author._id}
+              profileImage={message.author.profileImage}
               date={convertDateToHumanReadable(
                 new Date(message.date),
                 'dd/mm/yy'
