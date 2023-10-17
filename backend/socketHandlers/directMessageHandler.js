@@ -1,6 +1,7 @@
 const Message = require('../models/message');
 const Conversation = require('../models/conversation');
 const chatUpdates = require('./updates/chat');
+const User = require("../models/user")
 
 const directMessageHandler = async (socket, data) => {
   try {
@@ -8,7 +9,8 @@ const directMessageHandler = async (socket, data) => {
 
     const { userId } = socket.user;
     const { receiverUserId, content } = data;
-
+    const reciever = await User.findOne({_id: receiverUserId})
+    console.log(reciever)
     // create new message
     const message = await Message.create({
       content: content,

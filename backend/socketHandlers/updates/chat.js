@@ -11,7 +11,7 @@ const updateChatHistory = async (
     populate: {
       path: 'author',
       model: 'User',
-      select: 'username _id',
+      select: 'username _id profileImage',
     },
   });
 
@@ -33,7 +33,6 @@ const updateChatHistory = async (
       const activeConnections = serverStore.getActiveConnections(
         userId.toString()
       );
-
       activeConnections.forEach((socketId) => {
         io.to(socketId).emit('direct-chat-history', {
           messages: conversation.messages,

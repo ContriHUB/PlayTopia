@@ -190,7 +190,7 @@ mongoose.set("strictQuery", false);
 //     console.log("database connection failed. Server not started");
 //     console.error(err);
 //   });
-mongoose.connect("MONGO_URI", {
+mongoose.connect("mongodb+srv://Mrinal:wHTDzvxlgir2WUu4@cluster0.lkwq1ya.mongodb.net/?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
