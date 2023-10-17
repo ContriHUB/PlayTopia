@@ -11,8 +11,8 @@ import Dashboard from "./Dashboard/Dashboard";
 import AlertNotification from "./shared/components/AlertNotification";
 import "./App.css";
 import ChatBot from "./migratedPages/chatbot";
-import MemGame from './memory-game/src/memGame';
-import Game2048 from "./2048-animated/src/Game";
+import MemGame from './migratedPages/memory-game/src/memGame';
+import Game2048 from "./migratedPages/2048-animated/src/Game";
 
 
 function App() {
