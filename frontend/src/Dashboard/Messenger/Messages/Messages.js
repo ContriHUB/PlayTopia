@@ -1,4 +1,4 @@
-import React, { userRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { styled } from '@mui/system';
 import MessagesHeader from './MessagesHeader';
 import { connect } from 'react-redux';
@@ -7,14 +7,13 @@ import DateSeparator from './DateSeparator';
 
 const MainContainer = styled('div')({
   height: 'calc(100% - 60px)',
-  overflow: 'auto',
+  overflowY: 'auto', // Use overflowY to enable vertical scrolling
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
 });
 
 const convertDateToHumanReadable = (date, format) => {
-  // console.log(date)
   const map = {
     mm: date.getMonth() + 1,
     dd: date.getDate(),
@@ -25,12 +24,19 @@ const convertDateToHumanReadable = (date, format) => {
   return format.replace(/mm|dd|yy|yyy/gi, (matched) => map[matched]);
 };
 
-const Messages = ({ chosenChatDetails, messages}) => {
-  console.log(chosenChatDetails)
-  console.log(messages)
-    return (
-    <MainContainer>
-      <MessagesHeader name={chosenChatDetails?.name} profileImage={chosenChatDetails.profileImage}/>
+const Messages = ({ chosenChatDetails, messages }) => {
+  const messagesContainerRef = useRef(null);
+
+  useEffect(() => {
+    // Scroll to the latest message when new messages arrive
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
+  }, [messages]);
+
+  return (
+    <MainContainer ref={messagesContainerRef}>
+      <MessagesHeader name={chosenChatDetails?.name} profileImage={chosenChatDetails.profileImage} />
       {messages.map((message, index) => {
         const sameAuthor =
           index > 0 &&
