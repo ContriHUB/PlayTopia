@@ -4,6 +4,7 @@ import MessagesHeader from './MessagesHeader';
 import { connect } from 'react-redux';
 import Message from './Message';
 import DateSeparator from './DateSeparator';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const MainContainer = styled('div')({
   height: 'calc(100% - 60px)',
@@ -26,15 +27,15 @@ const convertDateToHumanReadable = (date, format) => {
 
 const Messages = ({ chosenChatDetails, messages }) => {
   const messagesContainerRef = useRef(null);
-
   useEffect(() => {
     // Scroll to the latest message when new messages arrive
     if (messagesContainerRef.current) {
       messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
     }
   }, [messages]);
-
+   
   return (
+    messages.length>0 ? 
     <MainContainer ref={messagesContainerRef}>
       <MessagesHeader name={chosenChatDetails?.name} profileImage={chosenChatDetails.profileImage} />
       {messages.map((message, index) => {
@@ -75,7 +76,10 @@ const Messages = ({ chosenChatDetails, messages }) => {
           </div>
         );
       })}
-    </MainContainer>
+    </MainContainer>: <MainContainer style={{justifyContent: "center", height: "100vh", color:"white", fontsize:"24px" }}>
+      Loading Messages...
+    <CircularProgress />
+</MainContainer>
   );
 };
 

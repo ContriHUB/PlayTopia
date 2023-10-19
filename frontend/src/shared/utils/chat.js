@@ -1,6 +1,7 @@
 import store from '../../store/store';
 import { setMessages } from '../../store/actions/chatActions';
 
+
 export const updateDirectChatHistoryIfActive = (data) => {
   const { participants, messages } = data;
   // find id of user from token and id from active conversation

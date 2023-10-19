@@ -9,6 +9,7 @@ const Wrapper = styled('div')({
 });
 
 const MessengerContent = ({ chosenChatDetails }) => {
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -27,7 +28,7 @@ const MessengerContent = ({ chosenChatDetails }) => {
 
   return (
     <Wrapper>
-      <Messages />
+      <Messages/>
       <NewMessageInput />
     </Wrapper>
   );
