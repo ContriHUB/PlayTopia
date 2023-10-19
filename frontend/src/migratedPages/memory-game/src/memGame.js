@@ -3,15 +3,15 @@ import './App.css'
 import SingleCard from './components/SingleCard'
 
 const cardImages = [
-  {"src": "/img/amongus-1.jpg", matched: false },
-  {"src": "/img/marsh-1.jpg", matched: false },
-  {"src": "/img/fortnite-1.jpg", matched: false },
-  {"src": "/img/mario-1.jpg", matched: false },
-  {"src": "/img/pubg-1.jpg", matched: false },
-  {"src": "/img/candy-1.jpg", matched: false }
+  {"src": "/memoryGame/img/amongus-1.jpg", matched: false },
+  {"src": "/memoryGame/img/marsh-1.jpg", matched: false },
+  {"src": "/memoryGame/img/fortnite-1.jpg", matched: false },
+  {"src": "/memoryGame/img/mario-1.jpg", matched: false },
+  {"src": "/memoryGame/img/pubg-1.jpg", matched: false },
+  {"src": "/memoryGame/img/candy-1.jpg", matched: false }
 ]
 
-function App() {
+function MemGame() {
   const [cards, setCards] = useState([])
   const [turns, setTurns]= useState(0)
   const [choiceOne, setChoiceOne] = useState(null)
@@ -96,4 +96,4 @@ useEffect(() => {
   );
 }
 
-export default App
+export default MemGame

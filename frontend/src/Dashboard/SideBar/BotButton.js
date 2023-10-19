@@ -4,7 +4,7 @@ import SmartToyIcon from '@mui/icons-material/SmartToy';
 
 const BotButton = () => {
   function handleClick() {
-    window.location.href = 'http://localhost:5000/';
+    window.location.href = 'http://localhost:3000/chatbot';
   }
   return (
     <Button

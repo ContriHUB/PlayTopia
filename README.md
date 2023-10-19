@@ -13,8 +13,7 @@
   1. Clone the repository: git clone https://github.com/silkie261001/PlayTopia.git
   2. Start the server: cd frontend -> npm i -> npm start
   3. Start the backend in parallel terminal: cd backend -> npm i -> npm start
-  4. Start the games server separately in parallel terminal: cd Games -> cd 2048-animated -> npm i -> npm start
-  5. Start another game server in parallel terminal: cd Games -> cd memory-game -> npm i -> npm start
+
 
 ## 🖥️ Tech Stack
 *Frontend:*

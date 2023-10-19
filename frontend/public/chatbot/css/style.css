@@ -16,7 +16,10 @@ body {
 }
 
 body {
-  background: linear-gradient(135deg, #e9ff00, #ff3434);
+  /* background: linear-gradient(135deg, #1985a1, #ff3434); */
+  background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
   background-size: cover;
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
@@ -480,4 +483,26 @@ ul li{
 
 #sihul li{
   cursor:pointer;
+}
+
+/* 
+spotify styles 
+*/
+
+.spotify-holder{
+  height:50vh;
+  display: flex;
+  padding-top: 7.5vh;
+ 
+}
+.spotify-holder iframe{
+  margin: 0 0.5vw;
+}
+
+/* some styling for better looking controller's */
+@media screen and (max-width:1300px) { 
+  .spotify-holder{
+    height: 80%;
+    flex-direction: column;
+  }
 }
