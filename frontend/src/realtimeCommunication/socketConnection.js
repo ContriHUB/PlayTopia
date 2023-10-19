@@ -73,6 +73,8 @@ export const connectWithSocketServer = (userDetails) => {
     console.log('user left room');
     webRTCHandler.handleParticipantLeftRoom(data);
   });
+
+
 };
 
 export const sendDirectMessage = (data) => {

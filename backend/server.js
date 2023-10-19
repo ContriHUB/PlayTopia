@@ -19,7 +19,7 @@ const memoryGameRoutes = require("./routes/memoryGameRoutes");
 const animatedRoutes = require("./routes/animatedRoutes");
 const fetch=require('node-fetch-commonjs');
 // require("dotenv").config({ path: "" });
-const PORT = process.env.PORT || process.env.API_PORT;
+const PORT = 5000 
 
 const app = express();
 app.use(express.json());
@@ -190,7 +190,7 @@ mongoose.set("strictQuery", false);
 //     console.log("database connection failed. Server not started");
 //     console.error(err);
 //   });
-mongoose.connect("MONGO_URI", {
+mongoose.connect("mongodb://localhost:27017", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

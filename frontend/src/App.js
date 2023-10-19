@@ -10,6 +10,10 @@ import RegisterPage from "./authPages/RegisterPage/RegisterPage";
 import Dashboard from "./Dashboard/Dashboard";
 import AlertNotification from "./shared/components/AlertNotification";
 import "./App.css";
+import ChatBot from "./migratedPages/chatbot";
+import MemGame from './migratedPages/memory-game/src/memGame';
+import Game2048 from "./migratedPages/2048-animated/src/Game";
+
 
 function App() {
   return (
@@ -26,9 +30,19 @@ function App() {
           <Route exact path="/dashboard">
             <Dashboard />
           </Route>
+          <Route path="/chatbot">
+            <ChatBot/>
+          </Route>
+          <Route path="/memoryGame">
+            <MemGame/>
+          </Route>
+          <Route path="/2048-Animated">
+            <Game2048/>
+          </Route>
           <Route path="/">
             <Redirect to="/dashboard" />
           </Route>
+         
         </Switch>
        
       </Router>
