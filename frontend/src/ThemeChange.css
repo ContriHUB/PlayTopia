@@ -1,0 +1,16 @@
+.app {
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .light-theme {
+    background-color: white;
+    color: black;
+  }
+  
+  .dark-theme {
+    background-color: #36393f;
+    color: white;
+  }
+  

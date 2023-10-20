@@ -1,14 +1,17 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Typography ,useTheme} from "@mui/material";
 
 const FriendsTitle = ({ title }) => {
+  const theme=useTheme();
   return (
-    <Typography
+    <Typography theme={theme}
       sx={{
         textTransform: "uppercase",
-        color: "#8e9297",
+        color:theme.palette.text.primary,
         fontSize: "14px",
         marginTop: "10px",
+        border: "solid aqua",
+        padding:"3px"
       }}
     >
       {title}

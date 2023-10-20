@@ -3,7 +3,7 @@ import { styled } from '@mui/system';
 
 const Separator = styled('div')({
   width: '95%',
-  backgroundColor: '#b9bbbe',
+  backgroundColor: 'red',
   height: '1px',
   position: 'relative',
   marginTop: '20px',

@@ -190,7 +190,9 @@ mongoose.set("strictQuery", false);
 //     console.log("database connection failed. Server not started");
 //     console.error(err);
 //   });
+
 mongoose.connect("mongodb://localhost:27017", {
+
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
