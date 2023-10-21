@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '@mui/system';
+import { styled,useTheme } from '@mui/system';
 import MainPageButton from './MainPageButton';
 import CreateRoomButton from './CreateRoomButton';
 import { connect } from 'react-redux';
@@ -8,18 +8,20 @@ import BotButton from './BotButton';
 import Game1Button from './Game1Button';
 import Game2Button from './Game2Button';
 
-const MainContainer = styled('div')({
+const MainContainer =styled('div')(({ theme }) => ({
   width: '72px',
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  backgroundColor: '#202225',
-});
+  backgroundColor: theme.palette.background.bg3,
+  border:'solid black'
+}));
 
 const SideBar = ({ activeRooms, isUserInRoom }) => {
+  const theme = useTheme()
   return (
-    <MainContainer>
+    <MainContainer theme={theme}>
       <MainPageButton />
       <BotButton />
       <Game1Button />

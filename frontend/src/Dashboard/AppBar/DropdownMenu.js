@@ -2,13 +2,16 @@ import * as React from 'react';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { IconButton } from '@mui/material';
+import { styled,useTheme} from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { logout } from '../../shared/utils/auth';
 import { getActions } from '../../store/actions/roomActions';
 import { connect } from 'react-redux';
+
 import UserProfileImage from './userProfileImage';
 
 const BasicMenu = ({ audioOnly, setAudioOnly }) => {
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -22,11 +25,16 @@ const BasicMenu = ({ audioOnly, setAudioOnly }) => {
   const handleAudioOnlyChange = () => {
     setAudioOnly(!audioOnly);
   };
+  
 
+
+  const theme=useTheme();
   return (
+
     <div style={{ display: 'flex', alignItems: 'center' }}>
       <UserProfileImage />
       <IconButton onClick={handleMenuOpen} style={{ color: 'white' }}>
+
         <MoreVertIcon />
       </IconButton>
       <Menu
@@ -43,6 +51,7 @@ const BasicMenu = ({ audioOnly, setAudioOnly }) => {
           {audioOnly ? 'Audio Only Enabled' : 'Audio Only Disabled'}
         </MenuItem>
       </Menu>
+      <button onClick={toggleTheme} style={{backgroundColor:'width',borderRadius:'4px' ,borderColor:'none'}} >{<theme.palette.img.default/>}</button>
     </div>
   );
 };

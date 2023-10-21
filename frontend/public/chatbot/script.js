@@ -1,0 +1,1 @@
+console.log('scrript tag is loaded')
