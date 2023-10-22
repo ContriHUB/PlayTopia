@@ -15,8 +15,6 @@ const MainContainer = styled('div')(({ theme }) => ({
 
 const PendingInvitationsList = ({ pendingFriendsInvitations }) => {
 
-  console.log(pendingFriendsInvitations)
-
   return (
     <MainContainer theme={theme}>
       {pendingFriendsInvitations.map((invitation) => (

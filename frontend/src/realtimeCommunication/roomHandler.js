@@ -36,7 +36,7 @@ export const updateActiveRooms = (data) => {
   const rooms = [];
 
   const userId = store.getState().auth.userDetails?._id;
-
+  console.log(userId)
   activeRooms.forEach((room) => {
     const isRoomCreatedByMe = room.roomCreator.userId === userId;
     if (isRoomCreatedByMe) {

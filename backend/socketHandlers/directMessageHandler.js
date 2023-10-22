@@ -1,15 +1,18 @@
 const Message = require('../models/message');
 const Conversation = require('../models/conversation');
 const chatUpdates = require('./updates/chat');
-const {getOnlineUsers} = require('../serverStore');
-const { get } = require('../routes/authRoutes');
+
+const User = require("../models/user")
+
+
 const directMessageHandler = async (socket, data) => {
   try {
     console.log('direct message event is being handled');
     console.log(data)
     const { userId } = socket.user;
     const { receiverUserId, content } = data;
-
+    const reciever = await User.findOne({_id: receiverUserId})
+    console.log(reciever)
     // create new message
     const message = await Message.create({
       content: content,
