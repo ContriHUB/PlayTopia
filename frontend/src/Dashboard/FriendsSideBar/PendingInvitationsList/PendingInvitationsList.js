@@ -14,7 +14,7 @@ const MainContainer = styled('div')(({ theme }) => ({
 }));
 
 const PendingInvitationsList = ({ pendingFriendsInvitations }) => {
-
+ const theme=useTheme();
   return (
     <MainContainer theme={theme}>
       {pendingFriendsInvitations.map((invitation) => (
