@@ -4,7 +4,6 @@ import Cell from "./Cell";
 import { Board } from "../helper";
 import useEvent from "../hooks/useEvent";
 import GameOverlay from "./GameOverlay";
-
 const BoardView = () => {
   const [board, setBoard] = useState(new Board());
 
@@ -45,7 +44,6 @@ const BoardView = () => {
   const resetGame = () => {
     setBoard(new Board());
   };
-
   return (
     <div className="game-holder">
       <div className="details-box">
