@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,7 +9,7 @@ import LoginPage from "./authPages/LoginPage/LoginPage";
 import RegisterPage from "./authPages/RegisterPage/RegisterPage";
 import Dashboard from "./Dashboard/Dashboard";
 import AlertNotification from "./shared/components/AlertNotification";
-
+import { ThemeProvider,createTheme } from "@mui/material/styles";
 
 import "./App.css";
 
@@ -17,6 +17,12 @@ import ChatBot from "./migratedPages/chatbot";
 import MemGame from './migratedPages/memory-game/src/memGame';
 import Game2048 from "./migratedPages/2048-animated/src/Game";
 
+const lightTheme = createTheme({
+
+});
+const darkTheme = createTheme({
+
+});
 
 
 function App() {
@@ -28,9 +34,9 @@ function App() {
   };
   const theme = darkMode ? darkTheme : lightTheme;
   return (
-    <>
+    // <>
 
-      
+      <ThemeProvider theme={theme}>
       <Router>
         <Switch>
           <Route exact path="/login">
@@ -40,7 +46,7 @@ function App() {
             <RegisterPage />
           </Route>
           <Route exact path="/dashboard">
-            <Dashboard />
+            <Dashboard toggleTheme={toggleTheme} />
           </Route>
           <Route path="/chatbot">
             <ChatBot/>
@@ -55,12 +61,12 @@ function App() {
             <Redirect to="/dashboard" />
           </Route>
          
-        </Switch>
+        {/* </Switch> */}
 
        
-        <Router >
-          <Switch>
-            <Route exact path="/login">
+        {/* <Router > */}
+          {/* <Switch> */}
+            {/* <Route exact path="/login">
               <LoginPage />
             </Route>
             <Route exact path="/register">
@@ -71,14 +77,14 @@ function App() {
             </Route>
             <Route path="/">
               <Redirect to="/dashboard" />
-            </Route>
+            </Route> */}
+
           </Switch>
-
         </Router>
-      </ ThemeProvider>
-      <AlertNotification />
-
-    </>
+        <AlertNotification />
+      </ThemeProvider>
+        
+    // </>
   );
 }
 

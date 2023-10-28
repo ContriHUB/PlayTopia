@@ -25,13 +25,56 @@ body {
   margin: 0;
   font-size: 1.5em;
   text-align: center;
-  background: #03252e;
+  /* background: #03252e; */
   color: #fff;
+   background: linear-gradient(45deg, #FF5733, #6DBE45, #33FF84, #339CFF, #BB33FF, #FF3383, #FF5733);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s linear infinite;
 }
-/*displays cards in grid format*/
 .card-grid {
-  margin-top: 40px;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
+}
+
+
+.card {
+  perspective: 1000px;
+  width: 200px; 
+  height: 240px;
+  position: relative;
+}
+
+.card > div {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card.flipped > div {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+/* Define the animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

@@ -21,6 +21,9 @@
     font-family: "Clear Sans", sans-serif;
     font-size: 21px;
     height: 100vh;
+     background: linear-gradient(45deg, #FF5733, #6DBE45, #33FF84, #339CFF, #BB33FF, #FF3383, #FF5733);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s linear infinite;
   }
 
   .details-box{

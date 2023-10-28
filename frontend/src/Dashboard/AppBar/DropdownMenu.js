@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 
 import UserProfileImage from './userProfileImage';
 
-const BasicMenu = ({ audioOnly, setAudioOnly }) => {
+const BasicMenu = ({ audioOnly, setAudioOnly ,toggleTheme }) => {
 
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);

@@ -5,7 +5,7 @@ import ChosenOptionLabel from './ChosenOptionLabel';
 
 
 
-const MainContainer = styled('div')({
+const MainContainer = styled('div')(({theme})=>({
 
   position: 'absolute',
   right: '0',
@@ -21,7 +21,7 @@ const MainContainer = styled('div')({
 }));
 
 const AppBar = ({toggleTheme}) => {
-  const theme = useTheme()
+  const theme = useTheme();
   return (
     <MainContainer theme={theme}>
       <ChosenOptionLabel />
